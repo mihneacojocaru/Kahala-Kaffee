@@ -1,0 +1,20 @@
+$breakpoints: (
+  "sm": 100px,
+  "md": 768px,
+  "lg": 1024px,
+);
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap');
+
+$font-stack-primary: "Montserrat", sans-serif;
+$font-stack-logo: "Oleo", sans-serif;
+
+//Colors
+
+$main-black: black;
+$main-brown: #2a1d13;
+
+
+
+

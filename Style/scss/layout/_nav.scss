@@ -1,0 +1,118 @@
+nav {
+  @include flexy($dir: row, $align: center, $just: space-between);
+  margin: 10px;
+  @include mq("md") {
+    margin: 1em 10%;
+  }
+
+  .navbar {
+    &__logo {
+      padding: 1em;
+      img {
+        width: 80px;
+        height: auto;
+      }
+
+      @include mq('md'){
+          img{
+              width: 110px;
+              height: auto;
+          }
+      }
+    }
+
+    &__menu {
+      a {
+        text-decoration: none;
+        color: $main-black;
+      }
+      li {
+        list-style: none;
+        padding: 1em;
+        opacity: 0;
+        font-size: 2em;
+      }
+
+      position: absolute;
+      right: 0px;
+      top: 12vh;
+      height: 88vh;
+      background-color: white;
+      @include flexy($dir: column, $align: flex-start);
+      width: 40%;
+      transform: translateX(100%);
+      transition: transform 0.5s ease-in;
+
+      @include mq('md'){
+          position: relative;
+          flex-direction: row;
+          align-items: flex-end;
+          transform: translate(0%);
+          width: inherit;
+          height: auto;
+          top: 0;
+          //background-color: white;
+          li{
+              opacity: 1;
+              padding: 10px 1em;
+              font-size: 1.1em;
+              a{
+                  transition: .2s;
+              }
+              &:hover{
+                a{
+                    border-bottom: 2px solid $main-brown;
+                }
+              }
+          }
+      }
+    }
+
+    &__burger {
+      display: block;
+      padding: 0 1.5em;
+      cursor: pointer;
+      div {
+        margin: 4px;
+        width: 30px;
+        height: 3px;
+        background-color: $main-brown;
+        transition: all 0.6s ease;
+      }
+
+      @include mq('md'){
+          display: none;
+      }
+    }
+
+    &__toggle {
+      .navbar__burger {
+        &--line1 {
+          transform: rotate(-45deg) translate(-5px, 6px);
+        }
+        &--line2 {
+          opacity: 0;
+        }
+        &--line3 {
+          transform: rotate(45deg) translate(-4px, -5px);
+        }
+      }
+    }
+
+    &__active {
+      transform: translateX(0%);
+    }
+  }
+}
+
+@keyframes navLinkFade {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0px);
+  }
+}
